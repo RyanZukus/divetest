@@ -4,14 +4,10 @@
 
 * Clone the repo to the directory of your choice
 * Install [Docker](https://docs.docker.com/get-docker/) if needed
-* Run the following commands
-
-```
-docker-compose up -d
-docker-compose run web python manage.py migrate
-```
-
-* Go to http://localhost:8000 or http://0.0.0.0:8000
+* Run ``docker-compose up -d`` to setup and build the application
+* Run ``docker-compose run web python manage.py migrate`` to initialize the database if you haven't done so before
+* Go to http://localhost:8000
+* Run ``docker-compose down`` when done
 
 ## Acknowledgement
 
