@@ -1,0 +1,19 @@
+<h1>Main Page</h1>
+
+<a href="{% url 'articles:write' %}">Write a New Article</a>
+
+<table>
+    <caption>All Articles</caption>
+    <thead>
+        <th>Article</th>
+        <th>Author</th>
+    </thead>
+    <tbody>
+        {% for article in articles.all %}
+        <tr>
+            <td><a href="{% url 'articles:article' article.id %}">{{ article.title }}</a></td>
+            <td>{{ article.author }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

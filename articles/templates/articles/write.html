@@ -1,0 +1,25 @@
+<script>
+    function clearForm() {
+        let form = document.getElementById('write');
+        let inputs = form.querySelectorAll('.clearable');
+        inputs.forEach((input) => {
+            input.value = "";
+        });
+    }
+</script>
+<h1>Write a New Article</h1>
+<form id="write" action="{% url 'articles:write' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        {% if add_error_message %}<p><strong>{{ add_error_message }}</strong></p>{% endif %}
+        <label for="title">Title</label>
+        <input type="text" name="title" class="clearable">
+        <label for="author">Author</label>
+        <input type="text" name="author" class="clearable">
+        <label for="body_text">Body</label>
+        <textarea name="body_text" rows="4" cols="50" class="clearable"></textarea>
+    </fieldset>
+    <input type="submit" value="Write">
+</form>
+<button id="clear" type="button" onclick="clearForm()">Clear</button>
+<a href="{% url 'articles:main' %}">Back to Main Page</a>
